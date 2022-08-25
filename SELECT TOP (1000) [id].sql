@@ -1,0 +1,5 @@
+SELECT TOP (1000) [id]
+      ,[nome]
+      ,[senha]
+      ,[ativo]
+  FROM [db_teste].[dbo].[usuarios]
