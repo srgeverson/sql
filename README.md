@@ -3,6 +3,8 @@ Este é um repositório de SQL testados nos Bancos de Dados.
 
 ## 📌 Versão em continuo desenvolvimento
 
+💡 Ferramentas utilizadas neste projeto
+
 * pgAdmin 4
 
 * Workbanch 8.0 CE 4
@@ -13,7 +15,7 @@ Este é um repositório de SQL testados nos Bancos de Dados.
 
 * IBExpert 2012
 
-* Funcionalidades presentes neste App
+💡 Funcionalidades presentes neste App
 
 * Gatilhos
 
