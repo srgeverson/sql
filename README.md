@@ -15,6 +15,10 @@ Este é um repositório de SQL testados nos Bancos de Dados.
 
 * IBExpert 2012
 
+* SQL Server Management Studio 2018
+
+* SQL Assistent 11
+
 💡 Funcionalidades presentes neste App
 
 * Gatilhos
