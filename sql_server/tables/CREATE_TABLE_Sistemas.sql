@@ -12,7 +12,6 @@ CREATE TABLE Sistemas
 	nome              VARCHAR(50) NOT NULL UNIQUE,
 	descricao         VARCHAR(100) NOT NULL,
 	ativo             BIT NOT NULL DEFAULT(1),
-	data_cadastro     DATETIME NOT NULL DEFAULT GETDATE(),
-	data_operacao     DATETIME,
-	usuarios_id       BIGINT FOREIGN KEY REFERENCES usuarios(id)
+	data_cadastro     DATETIMEOFFSET NOT NULL DEFAULT GETDATE(),
+	data_operacao     DATETIMEOFFSET
 );
