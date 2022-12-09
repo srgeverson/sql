@@ -6,12 +6,12 @@
 USE db_teste; 
 GO
 
-CREATE TABLE Sistemas
+CREATE TABLE sistemas
 (
 	id                BIGINT IDENTITY(1, 1) PRIMARY KEY,
 	nome              VARCHAR(50) NOT NULL UNIQUE,
 	descricao         VARCHAR(100) NOT NULL,
 	ativo             BIT NOT NULL DEFAULT(1),
-	data_cadastro     DATETIMEOFFSET NOT NULL DEFAULT GETDATE(),
+	data_cadastro     DATETIMEOFFSET NOT NULL DEFAULT GETUTCDATE(),
 	data_operacao     DATETIMEOFFSET
 );
