@@ -1,4 +1,4 @@
-CREATE FUNCTION ObterDataPascoa(@ano INT)
+CREATE FUNCTION dbo.Fn_ObterDataPascoa(@ano INT)
     RETURNS SMALLDATETIME
 AS
 BEGIN
