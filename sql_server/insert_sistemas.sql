@@ -1,7 +1,8 @@
 USE db_teste;
 GO
 
-INSERT INTO sistemas(nome, descricao) VALUES ('api_csharp', 'API de Cadastro de Usu·rios com C#');
-INSERT INTO sistemas(nome, descricao) VALUES ('WindowsForms', 'AplicaÁ„o desktop com C#');
-INSERT INTO sistemas(nome, descricao) VALUES ('WebForms', 'AplicaÁ„o web com C#');
+INSERT INTO sistemas(nome, descricao) VALUES ('api_csharp', 'API de Cadastro de Usu√°rios com C#');
+INSERT INTO sistemas(nome, descricao) VALUES ('WindowsForms', 'Aplica√ß√£o desktop com C#');
+INSERT INTO sistemas(nome, descricao) VALUES ('WebForms', 'Aplica√ß√£o web com C#');
 INSERT INTO sistemas(nome, descricao) VALUES ('WebServiceWCF', 'API WCF com C#');
+INSERT INTO sistemas(nome, descricao) VALUES ('AspNetMVC', 'API WCF com C#');

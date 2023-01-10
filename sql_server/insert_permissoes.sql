@@ -29,10 +29,13 @@ SET IDENTITY_INSERT permissoes OFF
 INSERT INTO usuarios_permissoes
 (usuario_id, permissao_id)
 VALUES
-(1, 1),
-(1, 2),
-(1, 3),
-(1, 4),
-(1, 5),
-(1, 6),
-(2, 6);
+--(1, 1),
+--(1, 2),
+--(1, 3),
+--(1, 4),
+--(1, 5),
+--(1, 6),
+--(2, 6)
+(1, 7),
+(1, 8)
+;
