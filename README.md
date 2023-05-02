@@ -33,23 +33,17 @@ Este é um repositório de SQL testados nos Bancos de Dados.
 
 #### 🛠️ Instruções contidas nesse projeto
 
-### Intruções SQL do MySQL
-* **[MySQL](https://github.com/srgeverson/sql/tree/master/mysql)**
+### Intruções SQL do **[MySQL](https://github.com/srgeverson/sql/tree/master/mysql)**
 
-### Intruções SQL do SQL Server
-* **[SQL Server](https://github.com/srgeverson/sql/tree/master/sql_server)**
+### Intruções SQL do **[SQL Server](https://github.com/srgeverson/sql/tree/master/sql_server)**
 
-### Intruções SQL do Postgres
-* **[PostgreSQL](https://github.com/srgeverson/sql/tree/master/postgres)**
+### Intruções SQL do **[PostgreSQL](https://github.com/srgeverson/sql/tree/master/postgres)**
 
-### Intruções SQL do Oracle
-* **[Oracle]()**
+### Intruções SQL do **[Oracle]()**
 
-### Intruções Firebird
-* **[Firebird](https://github.com/srgeverson/sql/tree/master/firebird)**
+### Intruções **[Firebird](https://github.com/srgeverson/sql/tree/master/firebird)**
 
-### Demais intruções
-* **[Outros](https://github.com/srgeverson/sql/tree/master/outros)**
+### Demais intruções **[Outros](https://github.com/srgeverson/sql/tree/master/outros)**
 
 ## 👨‍💻 Equipe de Desenvolvimento
 
