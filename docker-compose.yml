@@ -1,0 +1,20 @@
+version: '3.9'
+
+networks:
+  paulistense_network:
+    driver: bridge
+
+services:      
+  db_mysql:
+    build: ./mysql
+    container_name: container_db_mysql
+    ports: #para teste
+      - '3306:3306' #para teste
+    networks:
+      - paulistense_network
+    #volumes:
+    #  - '.docker/setup.sql:/docker-entrypoint-initdb.d/setup.sql'
+    environment:
+      - MYSQL_ROOT_PASSWORD=$BANCO_SENHA
+      #- MYSQL_USER=user_teste
+      #- MYSQL_PASS=12345678
