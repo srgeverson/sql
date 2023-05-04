@@ -83,6 +83,13 @@ $ docker-compose restart
 # Apagar as imagems e parar os containers (deve ser utilizado quando precisar recriar as imagens)
 $ docker-compose down --volumes
 
+
+#
+$ docker pull mcr.microsoft.com/mssql/server
+
+# 
+$ docker run --name sqlserver -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=12345678" -p 1433:1433 -d mcr.microsoft.com/mssql/server
+$ docker run -v ~/docker --name sqlserver -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=1q2w3e4r@#$" -p 1433:1433 -d mcr.microsoft.com/mssql/server
 ```
 
 ## 📃 Backup/Restore de dados

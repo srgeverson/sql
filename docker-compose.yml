@@ -5,16 +5,53 @@ networks:
     driver: bridge
 
 services:      
-  db_mysql:
-    build: ./mysql
-    container_name: container_db_mysql
-    ports: #para teste
-      - '3306:3306' #para teste
+  # db_mysql:
+  #   build: ./mysql
+  #   container_name: container_db_mysql
+  #   ports:
+  #     - '3306:3306'
+  #   networks:
+  #     - paulistense_network
+  #   volumes:
+  #    - './mysql/setup.sql:/docker-entrypoint-initdb.d/setup.sql'
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=$BANCO_SENHA
+  #     - MYSQL_USER=$BANCO_USUARIO
+  #     - MYSQL_PASS=$BANCO_SENHA
+
+  db_sqlserver:
+    build: ./sql_server
+    container_name: container_db_sqlserver
+    environment:
+      - SA_PASSWORD=$BANCO_SENHA
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+      # - MYSQL_USER=$BANCO_USUARIO
+      # - MYSQL_PASS=$BANCO_SENHA
+    ports:
+      - '1433:1433'
     networks:
       - paulistense_network
-    #volumes:
-    #  - '.docker/setup.sql:/docker-entrypoint-initdb.d/setup.sql'
-    environment:
-      - MYSQL_ROOT_PASSWORD=$BANCO_SENHA
-      #- MYSQL_USER=user_teste
-      #- MYSQL_PASS=12345678
+    # mssqltools:
+    #  image: mcr.microsoft.com/mssql-tools
+    #  depends_on:
+    #   - db_sqlserver
+    volumes:
+    - './sql_server/setup.sql:/tmp/setup.sql'
+    # - './sql_server/setup.sql:/tmp/setup.sql'
+    #command: /bin/bash ./tmp/setup.sh
+  # proxy_paulistense:
+  #   build: ./nginx
+  #   container_name: container_proxy_paulistense
+  #   ports:
+  #     - '3306:3306'
+  #     - '1433:1433'
+  #     - '5432:5432'
+  #     - '1521:1521'
+  #   networks:
+  #     - paulistense_network
+  #   depends_on:
+  #     - db_mysql
+  #     - db_sqlserver
+  #     # - db_postgres
+  #     # - db_oracle

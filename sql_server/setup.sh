@@ -1,0 +1,1 @@
+/opt/mssql-tools/bin/sqlcmd -S db_sqlserver -U sa -P 9e9f4fd45db1fa6f894aec0f3929a05c -d master -i /tmp/setup.sql
