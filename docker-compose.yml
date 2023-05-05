@@ -32,6 +32,16 @@ services:
       - paulistense_network
     volumes:
     - './sql_server/setup.sql:/tmp/setup.sql'
+  
+  db_postgres:
+    build: ./postgres
+    container_name: container_db_postgres
+    volumes:
+      - ./postgres/setup.sql:/docker-entrypoint-initdb.d/setup.sql'
+    environment:
+      -POSTGRES_PASSWORD$BANCO_SENHA
+    ports:
+      - '5432:5432'
 
   proxy_paulistense:
     build: ./nginx
