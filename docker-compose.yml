@@ -31,7 +31,7 @@ services:
     networks:
       - paulistense_network
     volumes:
-    - './sql_server/setup.sql:/tmp/setup.sql'
+      - './sql_server/setup.sql:/tmp/setup.sql'
   
   db_postgres:
     build: ./postgres
@@ -39,9 +39,21 @@ services:
     volumes:
       - ./postgres/setup.sql:/docker-entrypoint-initdb.d/setup.sql'
     environment:
-      -POSTGRES_PASSWORD$BANCO_SENHA
+      - POSTGRES_PASSWORD=$BANCO_SENHA
     ports:
       - '5432:5432'
+  
+  db_firebird:
+    build: ./firebird
+    container_name: container_db_firebird
+    # volumes:
+    #   - ./firebird/setup.sql:/docker-entrypoint-initdb.d/setup.sql'
+    environment:
+      - FIREBIRD_USER=$BANCO_USUARIO
+      - FIREBIRD_DATABASE=$BANCO_NOME
+      - FIREBIRD_PASSWORD=$BANCO_SENHA
+    ports:
+      - '3050:3050'
 
   proxy_paulistense:
     build: ./nginx
@@ -51,5 +63,6 @@ services:
       - '1433:1433'
       - '5432:5432'
       - '1521:1521'
+      - '3050:3050'
     networks:
       - paulistense_network
