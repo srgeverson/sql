@@ -39,7 +39,7 @@ Este é um repositório de SQL testados nos Bancos de Dados.
 
 ### Intruções SQL do **[PostgreSQL](https://github.com/srgeverson/sql/tree/master/postgres)**
 
-### Intruções SQL do **[Oracle]()**
+### Intruções SQL do **[Oracle](https://github.com/srgeverson/sql/tree/master/oracle)**
 
 ### Intruções **[Firebird](https://github.com/srgeverson/sql/tree/master/firebird)**
 
@@ -65,8 +65,11 @@ $ export BANCO_HOST_IP="db_sql"
 # Para ciar variável de ambiente no windows:
 $ setx BANCO_HOST_IP db_sql /m
 
-# Baixar as imagems e executar os containers em modo não iterativo(deve ser utilizado na primeira execução)
+# Baixar as imagems e executar os containers em modo não iterativo(deve ser utilizado na primeira execução) de modo escalável
 $ docker-compose up -d --scale db_mysql=1
+
+# Baixar as imagems e executar os containers em modo não iterativo(deve ser utilizado na primeira execução) serviço específico
+$ docker-compose up -d db_mysql
 
 # Baixar as imagems e executar os containers em modo iterativo(deve ser utilizado na primeira execução)
 $ docker-compose up
@@ -83,32 +86,20 @@ $ docker-compose restart
 # Apagar as imagems e parar os containers (deve ser utilizado quando precisar recriar as imagens)
 $ docker-compose down --volumes
 
-
-#
-$ docker pull mcr.microsoft.com/mssql/server
-
-# 
-$ docker run --name sqlserver -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=12345678" -p 1433:1433 -d mcr.microsoft.com/mssql/server
-$ docker run -v ~/docker --name sqlserver -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=1q2w3e4r@#$" -p 1433:1433 -d mcr.microsoft.com/mssql/server
 ```
 
 ## 📃 Backup/Restore de dados
 
 ```bash
-# Em ambientes windows execute o seguinte comando
+
+# MySQL - Em ambientes windows execute o seguinte comando
 $ cd C:\Program Files\MySQL\MySQL Server 8.0\
 
-# Autenticando no banco de dados em seguida será solicitado a senha
-$ mysql -u root -p
-
-# Saindo da autenticação
-$ exit;
-
-# Salvando dados
+# MySQL - Salvando dados
 $ mysqldump -u root -p sql > {PASTA_DE_DESTINO_DO_BACACKUP}/sql/mysql/paulistense_db.sql
 
-# Resraurando
-$ mysql -u root -p sql < {PASTA_ONDE_O_PROJETO_FOI_CLONADO}/sql/mysql/sql/sql/paulistense_db.sql
+# MySQL - Resraurando
+$ mysql -u root -p sql < {PASTA_ONDE_O_PROJETO_FOI_CLONADO}/sql/mysql/paulistense_db.sql
 
 ```
 
