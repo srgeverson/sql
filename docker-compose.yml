@@ -27,11 +27,20 @@ services:
       - ACCEPT_EULA=Y
       - MSSQL_PID=Developer
     ports:
-      - '1433:1433'
+      - 1433:1433
     networks:
       - paulistense_network
+
+  setup_db_sqlserver:
+    image: mcr.microsoft.com/mssql-tools
+    networks:
+          - paulistense_network
+    depends_on:
+      - db_sqlserver
     volumes:
-      - './sql_server/setup.sql:/tmp/setup.sql'
+      - ./sql_server/01-setup.sql:/tmp/01-setup.sql
+      - ./sql_server/init-setup.sh:/tmp/init-setup.sh
+    command: /bin/bash ./tmp/init-setup.sh
   
   db_postgres:
     build: ./postgres
@@ -43,17 +52,17 @@ services:
     ports:
       - '5432:5432'
   
-  db_firebird:
-    build: ./firebird
-    container_name: container_db_firebird
-    # volumes:
-    #   - ./firebird/setup.sql:/docker-entrypoint-initdb.d/setup.sql'
-    environment:
-      - FIREBIRD_USER=$BANCO_USUARIO
-      - FIREBIRD_DATABASE=$BANCO_NOME
-      - FIREBIRD_PASSWORD=$BANCO_SENHA
-    ports:
-      - '3050:3050'
+  # db_firebird:
+  #   build: ./firebird
+  #   container_name: container_db_firebird
+  #   # volumes:
+  #   #   - ./firebird/setup.sql:/docker-entrypoint-initdb.d/setup.sql'
+  #   environment:
+  #     - FIREBIRD_USER=$BANCO_USUARIO
+  #     - FIREBIRD_DATABASE=$BANCO_NOME
+  #     - FIREBIRD_PASSWORD=$BANCO_SENHA
+  #   ports:
+  #     - '3050:3050'
 
   proxy_paulistense:
     build: ./nginx
