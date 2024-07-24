@@ -8,7 +8,7 @@ GO
 USE [db_teste]
 GO
 CREATE LOGIN user_teste
-    WITH PASSWORD = '@G12345678'  
+    WITH PASSWORD = '@Pt12345678'  
 GO 
 CREATE USER [user_teste] FOR LOGIN [user_teste]
 GO

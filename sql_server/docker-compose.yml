@@ -1,0 +1,37 @@
+version: '3.9'
+
+networks:
+  paulistense_network:
+    driver: bridge
+
+services:      
+  db_sqlserver:
+    build: ./
+    container_name: container_db_sqlserver
+    environment:
+      - SA_PASSWORD=$BANCO_SENHA
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+    ports:
+      - 1433:1433
+    networks:
+      - paulistense_network
+
+  setup_db_sqlserver:
+    image: mcr.microsoft.com/mssql-tools
+    networks:
+      - paulistense_network
+    depends_on:
+      - db_sqlserver
+    volumes:
+      - ./01-setup.sql:/tmp/01-setup.sql
+      - ./init-setup.sh:/tmp/init-setup.sh
+    command: /bin/bash ./tmp/init-setup.sh
+
+  # proxy_paulistense:
+  #   build: ../nginx
+  #   container_name: container_proxy_paulistense
+  #   ports:
+  #     - '1433:1433'
+  #   networks:
+  #     - paulistense_network
